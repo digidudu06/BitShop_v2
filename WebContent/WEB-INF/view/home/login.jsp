@@ -16,7 +16,7 @@
 				<table id="login-outer-tab">
 					<tr>
 						<td colspan="5">
-							<form id="login-form" action="member.do">
+							<form id="login-form" method="get">
 							<table>
 								<tr>
 									<td></td>
@@ -60,6 +60,23 @@
 		/* window.onload = function(){
 			location.assign('member.do?dest=join-form');
 		} */
+		var submit = document.getElementById("login-btn");
+		submit.addEventListener('click', function(){
+			
+			var uid = document.getElementById("userid-input");
+			var upass = document.getElementById("password-input");
+			
+			if(uid.value==="" && upass.value===""){
+				alert('아이디 입력값이 없어요.');
+			}else{
+				alert('아이디 입력값이 있어요.');
+				var form = document.getElementById("login-form");
+				form.action = "member.do";
+				form.method = "post";
+				form.submit();
+			}
+		});
+		
 		
 		 document.getElementById('join-link')
 		.addEventListener('click', function(){
